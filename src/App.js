@@ -1,13 +1,19 @@
 import React from 'react';
-import { Container, Navbar, Nav, Card, Row, Col } from 'react-bootstrap';
+import { Container, Navbar, Nav, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Nom from './Nom';
+import Prix from './Prix';
+import Description from './Description';
+import Image from './Image';
+
+const prenom = "Lahoucine"; // change ton prénom ou laisse "" si pas fourni
 
 function App() {
   return (
     <>
-      {/* Fragment React */}
       <div className="App">
-        {/* Barre de navigation */}
+        {/* Navbar */}
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
             <Navbar.Brand href="#">Mon Projet</Navbar.Brand>
@@ -19,37 +25,33 @@ function App() {
           </Container>
         </Navbar>
 
-        {/* Header */}
+        {/* Contenu */}
         <Container className="mt-4">
           <h1 className="text-center mb-4">Bienvenue sur mon projet React</h1>
 
-          {/* Trois cartes */}
-          <Row>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Carte 1</Card.Title>
-                  <Card.Text>Ceci est un exemple de carte 1.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Carte 2</Card.Title>
-                  <Card.Text>Ceci est un exemple de carte 2.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Carte 3</Card.Title>
-                  <Card.Text>Ceci est un exemple de carte 3.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
+          {/* Carte produit */}
+          <Card>
+            <Card.Body>
+              <Image />
+              <Nom />
+              <Prix />
+              <Description />
+            </Card.Body>
+          </Card>
+
+          {/* Message de bienvenue */}
+          <p className="mt-3">
+            Bonjour, {prenom ? prenom : "là !"}
+          </p>
+
+          {/* Afficher une image si prénom fourni */}
+          {prenom && (
+            <img
+              src="https://via.placeholder.com/100"
+              alt="Avatar"
+              style={{ borderRadius: "50%", marginTop: "10px" }}
+            />
+          )}
         </Container>
       </div>
     </>
