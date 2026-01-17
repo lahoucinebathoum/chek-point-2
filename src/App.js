@@ -1,44 +1,59 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Container } from "react-bootstrap";
+import React from 'react';
+import { Container, Navbar, Nav, Card, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function App() {
-
-  const product = {
-    name: "Casque Bluetooth",
-    price: "350 MAD",
-    description: "Casque sans fil avec une excellente qualité sonore",
-    // Image en ligne fiable via HTTPS
-    image: "https://www.w3schools.com/w3images/lights.jpg"
-  };
-
-  const firstName = "Lahoucine"; // ou "" pour tester "Hello, there!"
-
+function App() {
   return (
-    <Container className="mt-5 text-center">
-      <Card style={{ width: "18rem", margin: "auto", padding: "10px" }}>
-        <img
-          src={product.image}
-          alt={product.name}
-          style={{ width: "100%", borderRadius: "10px" }}
-        />
-        <Card.Body>
-          <h5>{product.name}</h5>
-          <p>Price: {product.price}</p>
-          <p>{product.description}</p>
-        </Card.Body>
-      </Card>
+    <>
+      {/* Fragment React */}
+      <div className="App">
+        {/* Barre de navigation */}
+        <Navbar bg="dark" variant="dark" expand="lg">
+          <Container>
+            <Navbar.Brand href="#">Mon Projet</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#">Accueil</Nav.Link>
+              <Nav.Link href="#">À propos</Nav.Link>
+              <Nav.Link href="#">Contact</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
 
-      <h3 className="mt-3">
-        Hello, {firstName ? firstName : "there!"}
-      </h3>
+        {/* Header */}
+        <Container className="mt-4">
+          <h1 className="text-center mb-4">Bienvenue sur mon projet React</h1>
 
-      {firstName && (
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="user"
-          style={{ marginTop: "15px", borderRadius: "50%", width: "150px" }}
-        />
-      )}
-    </Container>
+          {/* Trois cartes */}
+          <Row>
+            <Col md={4}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Carte 1</Card.Title>
+                  <Card.Text>Ceci est un exemple de carte 1.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Carte 2</Card.Title>
+                  <Card.Text>Ceci est un exemple de carte 2.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Carte 3</Card.Title>
+                  <Card.Text>Ceci est un exemple de carte 3.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 }
+
+export default App;
